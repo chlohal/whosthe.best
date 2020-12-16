@@ -102,6 +102,35 @@
             text-transform: uppercase;
             letter-spacing: -0.1ch;
         }
+
+        #link-parent {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #0005;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        #link-parent:not([open]) {
+            display: none;
+        }
+
+        #link-parent div {
+            background: #EEF0FC;
+            padding: 1em;
+            border-radius: 0.5em;
+        }
     </style>
     <script async src="https://counter.clh.sh/counter.js"></script>
     <script>
@@ -111,24 +140,36 @@
                     event.preventDefault();
                 });
             });
-            document.getElementById("submit").addEventListener("click", function(event) {
+            document.getElementById("submit").addEventListener("click", function (event) {
                 event.preventDefault();
                 var checkboxes = Array.from(document.querySelectorAll("input[type=checkbox]"));
 
                 var data = {};
 
-                for(var i = 0; i < checkboxes.length; i++) {
+                for (var i = 0; i < checkboxes.length; i++) {
                     data[checkboxes[i].getAttribute("name")] = checkboxes[i].checked;
                 }
 
                 console.log(data);
 
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST","/api/submit");
+                xhr.open("POST", "/api/submit");
+
+                xhr.onload = showSuccessBox();
 
                 xhr.send(JSON.stringify(data));
             });
+            document.getElementById("link-parent").addEventListener("click", function () {
+                document.getElementById("link-parent").removeAttribute("open");
+            });
+            document.getElementById("link-parent").children[0].addEventListener("click", function (event) {
+                event.stopPropagation();
+            });
         });
+
+        function showSuccessBox() {
+            document.getElementById("link-parent").setAttribute("open", "true");
+        }
     </script>
 </head>
 
@@ -508,6 +549,13 @@
         </ul>
         <button id="submit">go</button>
     </form>
+    <dialog id="link-parent">
+        <div>
+            <h2>Success!</h2>
+            <p>The real best is you <img loading="lazy" class="emoji" title="love" alt="❤"
+                    src="https://twemoji.maxcdn.com/v/13.0.1/svg/2764.svg" width="24"></span> </p>
+        </div>
+    </dialog>
 </body>
 
 </html>
