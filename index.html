@@ -140,6 +140,10 @@
                     event.preventDefault();
                 });
             });
+            document.getElementById("nou").addEventListener("click", function (event) {
+                event.preventDefault();
+                alert("ERROR: invalid action. you're the best!!");
+            });
             document.getElementById("submit").addEventListener("click", function (event) {
                 event.preventDefault();
                 var checkboxes = Array.from(document.querySelectorAll("input[type=checkbox]"));
@@ -554,6 +558,7 @@
             <h2>Success!</h2>
             <p>The real best is you <img loading="lazy" class="emoji" title="love" alt="❤"
                     src="https://twemoji.maxcdn.com/v/13.0.1/svg/2764.svg" width="24"></span> </p>
+                    <button id="nou" style="text-transform: lowercase;">no u</button>
         </div>
     </dialog>
 </body>
