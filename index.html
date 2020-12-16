@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>whoo</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Odibee+Sans&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            color: #0A014F;
+            background: #fafafa;
+            font-size: 2em;
+            overflow-x: hidden;
+            text-align: center;
+            font-family: 'Montserrat', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        input[type=checkbox] {
+            position: absolute !important;
+            clip: rect(1px 1px 1px 1px);
+            /* IE6, IE7 */
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0 !important;
+            border: 0 !important;
+            height: 1px !important;
+            width: 1px !important;
+            overflow: hidden;
+        }
+
+        .visually-hidden {
+            position: absolute !important;
+            clip: rect(1px 1px 1px 1px);
+            /* IE6, IE7 */
+            clip: rect(1px, 1px, 1px, 1px);
+            padding: 0 !important;
+            border: 0 !important;
+            height: 1px !important;
+            width: 1px !important;
+            overflow: hidden;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            flex-basis: max-content;
+            flex-grow: 1;
+            margin: 0.25em;
+        }
+
+        label {
+            display: inline-block;
+            border: solid #FAE8EB 1em;
+            border-width: 0.0125em 0.125em 0.125em 0.125em;
+            border-radius: 0.5em;
+            padding: 0.125em 0.25em 0.25em 0.25em;
+            margin: 0 0.125em 0.125em 0.125em;
+            transition: all 0.05s linear;
+            text-transform: lowercase;
+            letter-spacing: 0.1ch;
+        }
+
+        input:checked+label {
+            border-color: #CD9FCC;
+            border-width: 0.0125em 0.25em 0.25em 0.25em;
+            margin: 0;
+        }
+
+        .smaller {
+            font-size: 0.5em;
+        }
+
+        .emoji {
+            width: 1ch;
+        }
+
+        button {
+            font: inherit;
+            margin-top: 1em;
+            background: 0;
+            border: 0.25em solid #F6CACA;
+            border-top-width: 0.0125em;
+            border-radius: 3em;
+            text-transform: uppercase;
+            letter-spacing: -0.1ch;
+        }
+    </style>
+    <script async src="https://counter.clh.sh/counter.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            Array.from(document.querySelectorAll("label")).forEach(function (label) {
+                label.addEventListener("mousedown", function (event) {
+                    event.preventDefault();
+                });
+            });
+            document.getElementById("submit").addEventListener("click", function(event) {
+                event.preventDefault();
+                var checkboxes = Array.from(document.querySelectorAll("input[type=checkbox]"));
+
+                var data = {};
+
+                for(var i = 0; i < checkboxes.length; i++) {
+                    data[checkboxes[i].getAttribute("name")] = checkboxes[i].checked;
+                }
+
+                console.log(data);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST","/api/submit");
+
+                xhr.send(JSON.stringify(data));
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>best? who?</h1>
+    <p>You can select multiple people.<br><span class="smaller">*note, this is just for fun. everyone best <img
+                loading="lazy" class="emoji" title="love" alt="❤" src="https://twemoji.maxcdn.com/v/13.0.1/svg/2764.svg"
+                width="24"></span></p>
+    <form id="form">
+        <ul>
+            <li>
+                <input type="checkbox" id="cb-michael" name="michael">
+                <label for="cb-michael">
+                    michael
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-mattt" name="mattt">
+                <label for="cb-mattt">
+                    mattt
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-garrett" name="garrett">
+                <label for="cb-garrett">
+                    garrett
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-evan" name="evan">
+                <label for="cb-evan">
+                    evan
+                </label>
+            </li>
+
+            <li>
+                <input type="checkbox" id="cb-paul" name="paul">
+                <label for="cb-paul">
+                    Paul
+                </label>
+            </li>
+
+            <li>
+                <input type="checkbox" id="cb-joseph" name="joseph">
+                <label for="cb-joseph">
+                    joseph
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-paulina-w-o-knife-" name="paulina-w-o-knife-">
+                <label for="cb-paulina-w-o-knife-">
+                    paulina (w/o knife)
+                </label>
+            </li>
+
+            <li>
+                <input type="checkbox" id="cb-jonah" name="paulina-jonah">
+                <label for="cb-jonah">
+                    jonah
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-charles-entertainment-cheese" name="charles-entertainment-cheese">
+                <label for="cb-charles-entertainment-cheese">
+                    charles entertainment cheese
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-coleman" name="coleman">
+                <label for="cb-coleman">
+                    coleman
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-hunter" name="hunter">
+                <label for="cb-hunter">
+                    hunter
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-max" name="max">
+                <label for="cb-max">
+                    max
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-mr-dinneen" name="mr-dinneen">
+                <label for="cb-mr-dinneen">
+                    mr. dinneen
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-panchos" name="panchos">
+                <label for="cb-panchos">
+                    panchos
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-johan" name="johan">
+                <label for="cb-johan">
+                    johan
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-ethan-from-crank-gameplays" name="ethan-from-crank-gameplays">
+                <label for="cb-ethan-from-crank-gameplays">
+                    ethan from crank gameplays
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-andrew-always-w-knife-" name="andrew-always-w-knife-">
+                <label for="cb-andrew-always-w-knife-">
+                    andrew (always w/ knife)
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-vijay" name="vijay">
+                <label for="cb-vijay">
+                    vijay
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-nate-" name="nate-">
+                <label for="cb-nate-">
+                    nate!
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-jack" name="jack">
+                <label for="cb-jack">
+                    jack
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-ryan" name="ryan">
+                <label for="cb-ryan">
+                    ryan
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-eli" name="eli">
+                <label for="cb-eli">
+                    eli
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-steven" name="steven">
+                <label for="cb-steven">
+                    steven
+                </label>
+            </li>
+
+            <li>
+                <input type="checkbox" id="cb-lani" name="lani">
+                <label for="cb-lani">
+                    lani
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-whitacre" name="whitacre">
+                <label for="cb-whitacre">
+                    whitacre
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-cole" name="cole">
+                <label for="cb-cole">
+                    cole
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-gabe" name="gabe">
+                <label for="cb-gabe">
+                    gabe
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-ben-shapiro" name="ben-shapiro">
+                <label for="cb-ben-shapiro">
+                    ben shapiro
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-spencer" name="spencer">
+                <label for="cb-spencer">
+                    spencer
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-chuck" name="chuck">
+                <label for="cb-chuck">
+                    chuck
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-jathin" name="jathin">
+                <label for="cb-jathin">
+                    jathin
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-kenny" name="kenny">
+                <label for="cb-kenny">
+                    kenny
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-austin" name="austin">
+                <label for="cb-austin">
+                    austin
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-leviblock" name="leviblock">
+                <label for="cb-leviblock">
+                    leviblock
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-andrew" name="andrew">
+                <label for="cb-andrew">
+                    andrew
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-von" name="von">
+                <label for="cb-von">
+                    von
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-sarah" name="sarah">
+                <label for="cb-sarah">
+                    sarah
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-isaac" name="isaac">
+                <label for="cb-isaac">
+                    isaac
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-tom-holland" name="tom-holland">
+                <label for="cb-tom-holland">
+                    tom holland
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-connor" name="connor">
+                <label for="cb-connor">
+                    connor
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-paulina-w-knife-" name="paulina-w-knife-">
+                <label for="cb-paulina-w-knife-">
+                    paulina (w/ knife)
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-sabrina" name="sabrina">
+                <label for="cb-sabrina">
+                    sabrina
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-adam" name="adam">
+                <label for="cb-adam">
+                    adam
+                </label>
+            </li>
+
+
+            <li>
+                <input type="checkbox" id="cb-joshua" name="joshua">
+                <label for="cb-joshua">
+                    joshua
+                </label>
+            </li>
+
+            <li>
+                <input type="checkbox" id="cb-elon-musk" name="elon-musk">
+                <label for="cb-elon-musk">
+                    elon musk
+                </label>
+            </li>
+
+            <li>
+                <input type="checkbox" id="cb-nick" name="nick">
+                <label for="cb-nick">
+                    nick
+                </label>
+            </li>
+            <li>
+                <input type="checkbox" id="cb-hudson" name="hudson">
+                <label for="cb-hudson">
+                    hudson
+                </label>
+            </li>
+        </ul>
+        <button id="submit">go</button>
+    </form>
+</body>
+
+</html>
