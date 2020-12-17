@@ -42,6 +42,7 @@ exports.handler = function (event, context, callback) {
         "whitacre": 0,
         "cole": 0,
         "gabe": 0,
+        "mike": 0,
         "ben-shapiro": 0,
         "spencer": 0,
         "chuck": 0,
