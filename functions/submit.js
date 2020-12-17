@@ -62,7 +62,9 @@ exports.handler = function (event, context, callback) {
         "joshua": 0,
         "elon-musk": 0,
         "nick": 0,
-        "hudson": 0
+        "hudson": 0,
+        "karen-botcheller": 0,
+        "wayne-page": 0
     };
 
     var schemeKeys = Object.keys(scheme);
