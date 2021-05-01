@@ -40,7 +40,7 @@ exports.handler = function (event, context, callback) {
         "steven": 0,
         "lani": 0,
         "whitacre": 0,
-        "cole": 0,
+        "chloe": 0,
         "gabe": 0,
         "mike": 0,
         "ben-shapiro": 0,
