@@ -28,6 +28,7 @@ exports.handler = function (event, context, callback) {
         "hunter": 0,
         "max": 0,
         "mr-dinneen": 0,
+        "preston": 0,
         "panchos": 0,
         "johan": 0,
         "ethan-from-crank-gameplays": 0,
